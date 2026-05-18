@@ -1,0 +1,1039 @@
+:root {
+  --white: #fcfcfc;
+  --white-soft: #f3f3f3;
+  --black: #070707;
+  --black-soft: #161616;
+  --red: #d9151b;
+  --red-deep: #9d0d12;
+  --text: #111111;
+  --muted: #4a4a4a;
+  --line: rgba(0, 0, 0, 0.12);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  --max-width: 1180px;
+  --display-font: "Arial Black", "Franklin Gothic Heavy", Impact, "Segoe UI Black", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(140deg, rgba(217, 21, 27, 0.08), transparent 22%),
+    linear-gradient(0deg, #ffffff, #ffffff);
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(217, 21, 27, 0.14), transparent 23%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: auto, 70px 70px, 70px 70px;
+  pointer-events: none;
+}
+
+.page-frame {
+  position: relative;
+  z-index: 1;
+}
+
+.section,
+.footer-strip {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+}
+
+.site-header {
+  width: calc(100vw + 32px);
+  margin: 0 calc(50% - 50vw - 16px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.45rem max(1.2rem, calc(50vw - (var(--max-width) / 2) + 1rem));
+  border: 3px solid var(--black);
+  background: #ffffff;
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.brand-logo {
+  width: 138px;
+  height: 138px;
+  object-fit: cover;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-copy span,
+h1,
+h2,
+h3,
+.button,
+.tile-label,
+.site-nav a,
+.footer-strip span,
+.footer-strip a {
+  font-family: var(--display-font);
+  font-weight: 900;
+  letter-spacing: 0.025em;
+}
+
+.brand-copy span {
+  font-size: 1.45rem;
+  text-transform: uppercase;
+}
+
+.brand-copy small {
+  font-family: var(--display-font);
+  font-size: 0.98rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--black);
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--black);
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--red);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.footer-strip a:hover,
+.footer-strip a:focus-visible {
+  color: var(--red);
+}
+
+.section {
+  padding: 3.5rem 0;
+  position: relative;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+  scroll-margin-top: 110px;
+}
+
+.section + .section {
+  padding-top: 2.5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.75fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background:
+    linear-gradient(115deg, rgba(7, 7, 7, 0.58), rgba(7, 7, 7, 0.2) 45%, rgba(255, 255, 255, 0.08)),
+    url("Roofing imagre.jpg") center center / 112% auto no-repeat;
+  z-index: -1;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.52)),
+    url("ROofing shingles.png") center center / 108% auto no-repeat;
+  z-index: -1;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.48)),
+    url("shingles picture .webp") center center / cover no-repeat;
+  z-index: -1;
+}
+
+.hero-copy,
+.hours-tile,
+.service-card,
+.about-card,
+.review-card,
+.payments-card,
+.social-card {
+  background: #fff;
+  border: 3px solid var(--black);
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+}
+
+.hero-copy {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.hero-copy::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(217, 21, 27, 0.18);
+}
+
+.hero-copy > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--red);
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--black);
+  text-transform: uppercase;
+  line-height: 0.96;
+}
+
+h1 {
+  font-size: clamp(1.45rem, 3.5vw, 2.6rem);
+  max-width: 12ch;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.12rem;
+  text-transform: uppercase;
+}
+
+.hero-text,
+.section-text,
+.service-card p,
+.about-card p,
+.review-card p,
+.hours-tile p,
+.social-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-text {
+  max-width: 42rem;
+  margin-top: 1.25rem;
+  font-size: 1.02rem;
+}
+
+.hero-actions,
+.social-actions,
+.hero-points,
+.hours-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.hero-actions {
+  margin-top: 1.8rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0.9rem 1.3rem;
+  text-decoration: none;
+  border: 2px solid var(--black);
+  transition: transform 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translate(-2px, -2px);
+}
+
+.button-primary {
+  background: var(--red);
+  color: #fff;
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.button-secondary {
+  background: #fff;
+  color: var(--black);
+  box-shadow: 6px 6px 0 rgba(217, 21, 27, 0.85);
+}
+
+.hero-points {
+  margin-top: 1.4rem;
+}
+
+.hero-points span {
+  padding: 0.75rem 0.95rem;
+  border: 2px solid var(--black);
+  background: var(--white-soft);
+  font-size: 0.94rem;
+}
+
+.hours-tile {
+  padding: 1.8rem;
+  background:
+    linear-gradient(180deg, rgba(217, 21, 27, 0.08), transparent),
+    #fff;
+}
+
+.tile-label {
+  margin: 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.hours-tile h2 {
+  margin-top: 0.35rem;
+  font-size: clamp(3rem, 8vw, 4.8rem);
+}
+
+.hours-meta {
+  margin-top: 1.3rem;
+}
+
+.hours-meta div {
+  flex: 1 1 140px;
+  padding: 0.85rem;
+  background: var(--black);
+  color: #fff;
+}
+
+.hours-meta strong {
+  display: block;
+}
+
+.hours-meta span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+}
+
+.section-heading {
+  max-width: 56rem;
+  margin-bottom: 1.6rem;
+}
+
+.section-divider {
+  width: 100vw;
+  height: 78px;
+  margin: 0 calc(50% - 50vw);
+  display: block;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: var(--red);
+}
+
+.section-divider span {
+  display: none;
+}
+
+/* Thick red base with white and black bands layered above it. */
+.section-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -3%;
+  right: -3%;
+  top: 14px;
+  bottom: 14px;
+  background: #ffffff;
+  clip-path: polygon(0 30%, 103% 0%, 103% 70%, 0 100%);
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -3%;
+  right: -3%;
+  top: 28px;
+  bottom: 0;
+  background: var(--black);
+  clip-path: polygon(0 32%, 103% 0%, 103% 68%, 0 100%);
+}
+
+/* Flip variant sweeps ↗ */
+.section-divider-flip::before {
+  clip-path: polygon(0 0%, 103% 30%, 103% 100%, 0 70%);
+}
+
+.section-divider-flip::after {
+  clip-path: polygon(0 0%, 103% 32%, 103% 100%, 0 68%);
+}
+
+.services-grid,
+.about-grid,
+.reviews-grid,
+.extras-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.services-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.about-grid {
+  grid-template-columns: 1.15fr 1fr 1fr;
+}
+
+.extras-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.extras .payments-card,
+.extras .social-card {
+  padding: 0.95rem 1.15rem;
+}
+
+.service-card,
+.about-card,
+.review-card,
+.payments-card,
+.social-card {
+  padding: 1.35rem;
+}
+
+.about-card-strong,
+.social-card {
+  background:
+    linear-gradient(180deg, rgba(217, 21, 27, 0.08), transparent 55%),
+    #fff;
+}
+
+.reviews-carousel {
+  overflow: hidden;
+  border: 3px solid var(--black);
+  background:
+    linear-gradient(180deg, rgba(217, 21, 27, 0.08), transparent 65%),
+    #fff;
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+  padding: 1.2rem;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 1.2rem;
+  width: max-content;
+  animation: review-scroll 42s linear infinite;
+}
+
+.reviews-carousel:hover .reviews-track {
+  animation-play-state: paused;
+}
+
+.review-card {
+  width: min(320px, calc(100vw - 5rem));
+  flex: 0 0 auto;
+}
+
+.towns-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.8rem;
+}
+
+.towns-grid span {
+  display: block;
+  padding: 0.9rem 1rem;
+  border-left: 5px solid var(--red);
+  border-top: 2px solid var(--black);
+  border-right: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  background: #fff;
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.08);
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+}
+
+/* ---- About section ---- */
+.about-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text);
+  max-width: 800px;
+  margin: 0 0 2.4rem;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 1.2rem 1.4rem;
+  border-left: 4px solid var(--red);
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.feature-card {
+  border: 3px solid var(--black);
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.feature-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 17px 17px 0 rgba(217, 21, 27, 0.9);
+}
+
+.feature-card-top {
+  background: var(--red);
+  padding: 1.8rem 1.5rem 1.4rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.feature-stat {
+  font-family: var(--display-font);
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  color: #ffffff;
+  line-height: 1;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.feature-label {
+  font-family: var(--display-font);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+.feature-card-body {
+  background: var(--black);
+  padding: 1.4rem 1.5rem;
+  flex: 1;
+}
+
+.feature-card-body p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.94rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-features .feature-card:nth-child(3) .feature-stat {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  white-space: nowrap;
+}
+
+/* ---- Team section ---- */
+.team::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.64)),
+    url("shingles work .jpg") center center / 108% auto no-repeat;
+  z-index: -1;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+/* ---- Gallery section ---- */
+.gallery-carousel {
+  overflow: hidden;
+  border: 3px solid var(--black);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+  padding: 1rem;
+}
+
+.gallery-carousel + .gallery-carousel {
+  margin-top: 1rem;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: gallery-scroll-left 44s linear infinite;
+}
+
+.gallery-carousel-reverse .gallery-track {
+  animation-name: gallery-scroll-right;
+}
+
+.gallery-carousel:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+.gallery-image {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border: 3px solid var(--black);
+  flex: 0 0 auto;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.team-card {
+  border: 3px solid var(--black);
+  background: #fff;
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+  padding: 1.5rem;
+}
+
+.team-role {
+  margin: 0 0 0.6rem;
+  font-family: var(--display-font);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
+
+.team-card h3 {
+  margin: 0 0 0.7rem;
+}
+
+.team-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ---- Towns bullet list ---- */
+.towns {
+  overflow: hidden;
+}
+
+.towns::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.8));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.towns::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 520px;
+  height: 520px;
+  background: url("401 ROOFING white background log .png") center center / contain no-repeat;
+  transform: translate(-50%, -50%);
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.towns .section-heading,
+.towns .towns-list {
+  position: relative;
+  z-index: 1;
+}
+
+.towns-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 1.6rem;
+}
+
+.towns-list li {
+  position: relative;
+  padding: 0.65rem 0 0.65rem 1.8rem;
+  font-family: var(--display-font);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.towns-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 10px;
+  height: 14px;
+  background: var(--red);
+  transform: translateY(-50%) skewX(-12deg);
+}
+
+/* ---- Hours bullets ---- */
+.hours-bullets {
+  list-style: none;
+  padding: 1.2rem 0 0;
+  margin: 1.2rem 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.hours-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.91rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.hours-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 11px;
+  background: var(--red);
+  transform: translateY(-50%) skewX(-12deg);
+}
+
+/* Keep divider color order as red, white, black. */
+.section-divider::after {
+  background: var(--black);
+}
+
+.section-divider-flip::after {
+  background: var(--black);
+}
+
+.payments-subtitle {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin: 0.6rem 0 0;
+  line-height: 1.5;
+}
+
+.payments-image {
+  width: 100%;
+  max-width: 360px;
+  display: block;
+  margin: 0.8rem auto 0;
+  border: 2px solid var(--black);
+}
+
+.footer-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  width: calc(100vw + 32px);
+  margin: 1rem calc(50% - 50vw - 16px) 0;
+  padding: 1rem max(1.2rem, calc(50vw - (var(--max-width) / 2) + 1rem));
+  border: 3px solid var(--black);
+  background: var(--black);
+  box-shadow: 12px 12px 0 var(--red);
+}
+
+.footer-strip::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: -13px;
+  height: 10px;
+  background: var(--red);
+}
+
+.footer-strip span,
+.footer-strip a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@keyframes review-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.6rem));
+  }
+}
+
+@keyframes gallery-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@keyframes gallery-scroll-right {
+  from {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1150px) {
+  .hero,
+  .extras-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid,
+  .towns-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .towns-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 140px;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(135deg, rgba(7, 7, 7, 0.58), rgba(7, 7, 7, 0.22) 52%, rgba(255, 255, 255, 0.08)),
+      url("Roofing imagre.jpg") 62% center / cover no-repeat;
+  }
+
+  .services::before {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.52)),
+      url("ROofing shingles.png") 58% center / cover no-repeat;
+  }
+
+  .site-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    top: 0;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .site-nav {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex: 0 0 auto;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.78rem;
+    box-shadow: 4px 4px 0 var(--red);
+  }
+
+  .services-grid,
+  .about-grid,
+  .towns-grid,
+  .extras-grid,
+  .about-features,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-image {
+    width: 250px;
+    height: 180px;
+  }
+
+  .about-paragraph {
+    font-size: 0.97rem;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .about::before {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.56)),
+      url("shingles picture .webp") center center / cover no-repeat;
+  }
+
+  .team::before {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      url("shingles work .jpg") 58% center / cover no-repeat;
+  }
+
+  .towns-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand-logo {
+    width: 86px;
+    height: 86px;
+  }
+
+  .brand {
+    gap: 0.7rem;
+  }
+
+  .brand-copy span {
+    font-size: 1.08rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.8rem;
+  }
+
+  .hero-copy,
+  .hours-tile,
+  .service-card,
+  .about-card,
+  .review-card,
+  .payments-card,
+  .social-card,
+  .footer-strip {
+    box-shadow: 9px 9px 0 rgba(217, 21, 27, 0.85);
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 11vw, 3.6rem);
+  }
+
+  .section {
+    padding: 2.8rem 0;
+    scroll-margin-top: 140px;
+  }
+
+  .section-divider {
+    height: 56px;
+  }
+
+  .towns::after {
+    width: 420px;
+    height: 420px;
+  }
+
+  .footer-strip {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+/* ---- Scroll animations ---- */
+[data-anim] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.52s ease calc(var(--anim-delay, 0) * 75ms),
+    transform 0.52s ease calc(var(--anim-delay, 0) * 75ms);
+}
+
+[data-anim].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-anim] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
