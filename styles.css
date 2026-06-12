@@ -20,6 +20,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+  overflow-x: clip;
+  width: 100%;
 }
 
 body {
@@ -29,8 +31,9 @@ body {
   background:
     linear-gradient(140deg, rgba(217, 21, 27, 0.08), transparent 22%),
     linear-gradient(0deg, #ffffff, #ffffff);
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
+  width: 100%;
 }
 
 body::before {
@@ -48,6 +51,8 @@ body::before {
 .page-frame {
   position: relative;
   z-index: 1;
+  overflow-x: clip;
+  width: 100%;
 }
 
 .section,
@@ -62,8 +67,8 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding: 0.45rem max(1.2rem, calc(50vw - (var(--max-width) / 2) + 1rem));
+  gap: 1.15rem;
+  padding: 0.28rem max(1.2rem, calc(50vw - (var(--max-width) / 2) + 1rem));
   border: 3px solid var(--black);
   background: #ffffff;
   box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
@@ -82,8 +87,8 @@ body::before {
 }
 
 .brand-logo {
-  width: 138px;
-  height: 138px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 0;
   border: 0;
@@ -127,6 +132,29 @@ h3,
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
+}
+
+.nav-toggle {
+  display: none;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: 2px solid var(--black);
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--red);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: var(--black);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .site-nav a {
@@ -260,7 +288,7 @@ h2 {
 
 h1 {
   font-size: clamp(1.45rem, 3.5vw, 2.6rem);
-  max-width: 12ch;
+  max-width: 18ch;
 }
 
 h2 {
@@ -469,6 +497,32 @@ h3 {
   padding: 1.35rem;
 }
 
+.service-strip {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 3px solid var(--black);
+  background: #ffffff;
+  color: var(--black);
+  box-shadow: 14px 14px 0 rgba(217, 21, 27, 0.9);
+}
+
+.service-strip strong {
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--black);
+}
+
+.service-strip span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .about-card-strong,
 .social-card {
   background:
@@ -500,6 +554,14 @@ h3 {
 .review-card {
   width: min(320px, calc(100vw - 5rem));
   flex: 0 0 auto;
+}
+
+.review-stars {
+  margin: 0 0 0.7rem;
+  color: var(--red);
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
 }
 
 .towns-grid {
@@ -702,9 +764,9 @@ h3 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 520px;
-  height: 520px;
-  background: url("401 ROOFING white background log .png") center center / contain no-repeat;
+  width: 728px;
+  height: 728px;
+  background: url("Dv contractores lgog.jpg") center center / contain no-repeat;
   transform: translate(-50%, -50%);
   opacity: 0.13;
   pointer-events: none;
@@ -795,11 +857,14 @@ h3 {
 }
 
 .payments-image {
-  width: 100%;
-  max-width: 360px;
+  width: min(100%, 420px);
+  height: auto;
   display: block;
-  margin: 0.8rem auto 0;
+  margin: 1rem auto 0;
+  padding: 0.4rem;
+  background: #fff;
   border: 2px solid var(--black);
+  object-fit: contain;
 }
 
 .footer-strip {
@@ -898,23 +963,35 @@ h3 {
   }
 
   .site-header {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw) 0;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
     top: 0;
-    padding: 0.65rem 0.85rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-left: auto;
   }
 
   .site-nav {
-    display: flex;
+    display: none;
     width: 100%;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0.55rem;
-    overflow-x: auto;
+    overflow-x: clip;
     padding-bottom: 0.15rem;
     scrollbar-width: none;
+  }
+
+  .site-header.nav-open .site-nav {
+    display: flex;
   }
 
   .site-nav::-webkit-scrollbar {
@@ -922,10 +999,23 @@ h3 {
   }
 
   .site-nav a {
-    flex: 0 0 auto;
+    flex: 1 1 calc(50% - 0.55rem);
     padding: 0.65rem 0.8rem;
     font-size: 0.78rem;
     box-shadow: 4px 4px 0 var(--red);
+    text-align: center;
+  }
+
+  .site-header.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .site-header.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-header.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   .services-grid,
@@ -935,6 +1025,11 @@ h3 {
   .about-features,
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .service-strip {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .gallery-image {
@@ -965,8 +1060,8 @@ h3 {
   }
 
   .brand-logo {
-    width: 86px;
-    height: 86px;
+    width: 92px;
+    height: 92px;
   }
 
   .brand {
@@ -1001,13 +1096,20 @@ h3 {
     scroll-margin-top: 140px;
   }
 
+  .section-divider,
+  .footer-strip {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+  }
+
   .section-divider {
     height: 56px;
   }
 
   .towns::after {
-    width: 420px;
-    height: 420px;
+    width: 588px;
+    height: 588px;
   }
 
   .footer-strip {
